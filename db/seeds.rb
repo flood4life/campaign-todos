@@ -1,7 +1,27 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+novice = User.create(email: "novice@novice", password: "123456", username: "novice")
+expert = User.create(email: "expert@expert", password: "123456", username: "expert", user_type: :expert, status: :qualified)
+
+campaign = Campaign::Create.new.(title: "Camp 1", user_id: expert.id, duration: "7 days") do |t|
+  t.success {|c| c}
+  t.failure {|f|}
+end
+
+expert_list = TodoList::Create.new.(name: "Expert List", user_id: expert.id, campaign_id: campaign.id) do |t|
+  t.success {|c| c}
+  t.failure {}
+end
+
+novice_list = TodoList::Create.new.(name: "Novice List", user_id: novice.id, campaign_id: campaign.id) do |t|
+  t.success {|c| c}
+  t.failure {}
+end
+
+Comment::Create.new.(content: "Insightful", user_id: novice.id, todo_list_id: novice_list.id) do |t|
+  t.success {|c| c}
+  t.failure {}
+end
+
+Comment::Create.new.(content: "Expert opinion", user_id: expert.id, campaign_id: campaign.id) do |t|
+  t.success {|c| c}
+  t.failure {}
+end

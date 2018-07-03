@@ -26,10 +26,22 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+gem "slim-rails"
+gem "devise"
+gem "pundit"
+gem "dry-validation"
+gem "dry-transaction"
+
+gem "switch_user"
+gem "turbolinks"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem "rspec"
+  gem "rspec-rails"
+  gem "faker", git: 'https://github.com/stympy/faker.git', branch: 'master'
+  gem "factory_bot_rails"
 end
 
 group :development do

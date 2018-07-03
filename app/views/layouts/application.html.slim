@@ -1,0 +1,21 @@
+DOCTYPE
+html
+  head
+    title Campaign Todos
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = javascript_pack_tag "application", 'data-turbolinks-track': "reload", defer: true
+    / = stylesheet_pack_tag "application", 'data-turbolinks-track': "reload"
+
+  body
+    - if current_user
+      = current_user.email
+      br
+      = current_user.user_type
+      br
+      = link_to "Home", root_path
+      hr
+    = yield
+    hr
+    = switch_user_select

@@ -1,0 +1,6 @@
+h1= @user.email
+= form_with model: @user do |f|
+  = f.label :status
+  = select :user, :status, %i[not_qualified qualified banned]
+  br
+  = f.submit

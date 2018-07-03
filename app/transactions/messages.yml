@@ -1,0 +1,6 @@
+en:
+  errors:
+    valid_status?: "must be one of following: :not_qualified, :qualified, :banned"
+
+    rules:
+      campaign_or_todo_list_filled: "exactly one of campaign_id and todo_list_id must be filled"

@@ -1,0 +1,5 @@
+h1= @list.name
+= link_to "New comment", new_todo_list_comment_path(@list)
+h3 Comments
+- @list.comments.each do |c|
+  = render partial: "comments/comment", locals: {c: c}

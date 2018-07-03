@@ -1,0 +1,6 @@
+h1 Campaigns
+= link_to "New campaign", new_campaign_path
+hr
+- @campaigns.each do |c|
+  = link_to c.title, campaign_path(c)
+  br

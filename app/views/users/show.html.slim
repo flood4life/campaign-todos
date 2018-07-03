@@ -1,0 +1,9 @@
+h1= @user.email
+h2= @user.username
+h3
+  | Status:
+  =< @user.status
+h3
+  | Type:
+  =< @user.user_type
+= link_to "Edit", [:edit, @user]

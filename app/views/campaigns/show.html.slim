@@ -1,0 +1,14 @@
+h1= @campaign.title
+h4
+  | Duration:
+  =< @campaign.duration
+= link_to "New Todo List", new_campaign_todo_list_path(@campaign)
+h3 Todo Lists
+- @campaign.todo_lists.each do |tl|
+  = link_to tl.name, todo_list_path(tl)
+  br
+hr
+= link_to "New comment", new_campaign_comment_path(@campaign)
+h3 Comments
+- @campaign.comments.each do |c|
+  = render partial: "comments/comment", locals: {c: c}
